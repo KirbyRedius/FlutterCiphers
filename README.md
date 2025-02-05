@@ -23,3 +23,8 @@ Made for laboratory work
 2. Simple transposition cipher
 3. Cryptanalysis of key transposition cipher (coming soon)
 4. Cryptanalysis of affine cipher
+
+---
+
+## Example
+![image](https://github.com/user-attachments/assets/f1f4e184-7054-42a8-907d-f7bb230ead85)
