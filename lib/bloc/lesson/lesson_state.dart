@@ -6,9 +6,12 @@ class LessonInitialState extends LessonState {}
 
 class LessonLoadingState extends LessonState {}
 
-class LessonFailureState extends LessonState {}
+class LessonFailureState extends LessonState {
+  final String? error;
+  LessonFailureState({this.error});
+}
 
 class LessonSuccessState extends LessonState {
-  final String result;
+  final Object result;
   LessonSuccessState({required this.result});
 }

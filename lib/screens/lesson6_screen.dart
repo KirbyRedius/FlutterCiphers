@@ -6,18 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 
-// TODO: в некоторых заданиях меняется лишь метод шифрования
-// возможно нужно будет сделать рефактор кода
-// и заменить весь выбор файла на отдельный виджет
-
-class Lesson2Screen extends StatefulWidget {
-  const Lesson2Screen({super.key});
+class Lesson6Screen extends StatefulWidget {
+  const Lesson6Screen({super.key});
 
   @override
-  State<Lesson2Screen> createState() => _Lesson2ScreenState();
+  State<Lesson6Screen> createState() => _Lesson6ScreenState();
 }
 
-class _Lesson2ScreenState extends State<Lesson2Screen> {
+class _Lesson6ScreenState extends State<Lesson6Screen> {
   PlatformFile? choosedFile;
 
   @override
@@ -36,7 +32,7 @@ class _Lesson2ScreenState extends State<Lesson2Screen> {
                     height: 2.h,
                   ),
                   TitleWithBack(
-                    title: "Задание 2\nШифр простой перестановки",
+                    title: "Задание 6\nЭлементы блочных шифров. Сеть Фейстеля",
                     onBackButton: () {
                       context.read<LessonBloc>().add(LessonExitEvent());
                     },
@@ -122,7 +118,7 @@ class _Lesson2ScreenState extends State<Lesson2Screen> {
                           height: 10.h,
                           onTap: () {
                             context.read<LessonBloc>().add(
-                                  Lesson2LoadEncryptEvent(
+                                  Lesson6LoadEncryptEvent(
                                     file: choosedFile!,
                                   ),
                                 );
@@ -147,7 +143,7 @@ class _Lesson2ScreenState extends State<Lesson2Screen> {
                           height: 10.h,
                           onTap: () {
                             context.read<LessonBloc>().add(
-                                  Lesson2LoadDecryptEvent(
+                                  Lesson6LoadDecryptEvent(
                                     file: choosedFile!,
                                   ),
                                 );

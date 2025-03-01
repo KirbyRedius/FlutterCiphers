@@ -1,7 +1,6 @@
 import 'package:cryptography_methods/bloc/lesson/lesson_bloc.dart';
 import 'package:cryptography_methods/screens/menu_screen.dart';
 import 'package:cryptography_methods/theme/app_theme.dart';
-import 'package:cryptography_methods/utils/ciphers/affine_decrypt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
@@ -11,10 +10,17 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
 
-  WindowOptions windowOptions = const WindowOptions(
-    minimumSize: Size(1000 - 300, 580 - 300),
-    maximumSize: Size(1000, 580),
-    size: Size(1000, 580),
+  double widthNow = 850;
+  double heightNow = 900;
+
+  double availableMinusResizeWidth = 0;
+  double availableMinusResizeHeight = 100;
+
+  WindowOptions windowOptions = WindowOptions(
+    minimumSize: Size(widthNow - availableMinusResizeWidth,
+        heightNow - availableMinusResizeHeight),
+    maximumSize: Size(widthNow, heightNow),
+    size: Size(widthNow, heightNow),
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
     center: true,

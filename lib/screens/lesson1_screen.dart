@@ -161,7 +161,7 @@ class _Lesson1ScreenState extends State<Lesson1Screen> {
                     ),
                   if (state is LessonSuccessState)
                     Text(
-                      state.result,
+                      state.result.toString(),
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Theme.of(context).colorScheme.onSurface,
