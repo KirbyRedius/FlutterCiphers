@@ -1,6 +1,8 @@
 class Constants {
   static const int variant = 4;
 
+  // семестр 1
+
   // задание 1
   static const int affineM = 256;
   static const int affineKa = 256;
@@ -20,4 +22,12 @@ class Constants {
   // задание 7
   static const String lesson7text =
       "Я был разбужен спозаранку Щелчком оконного стекла. Размокшей каменной баранкой В воде Венеция плыла. Все было тихо, и, однако, Во сне я слышал крик, и он Подобьем смолкнувшего знака Еще тревожил небосклон.";
+
+  // семестр 2
+
+  // задание 1
+  static const int term2_lesson1_a = 21;
+  static const int term2_lesson1_c = 6;
+  static const int term2_lesson1_m = 143;
+  static const int term2_lesson1_x0 = 5;
 }

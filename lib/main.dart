@@ -10,8 +10,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
 
-  double widthNow = 850;
-  double heightNow = 900;
+  double widthNow = 1000;
+  double heightNow = 800;
 
   double availableMinusResizeWidth = 0;
   double availableMinusResizeHeight = 100;

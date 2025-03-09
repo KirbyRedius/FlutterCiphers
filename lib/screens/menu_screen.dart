@@ -1,9 +1,10 @@
-import 'package:cryptography_methods/screens/lesson1_screen.dart';
-import 'package:cryptography_methods/screens/lesson2_screen.dart';
-import 'package:cryptography_methods/screens/lesson4_screen.dart';
-import 'package:cryptography_methods/screens/lesson5_screen.dart';
-import 'package:cryptography_methods/screens/lesson6_screen.dart';
-import 'package:cryptography_methods/screens/lesson7_screen.dart';
+import 'package:cryptography_methods/screens/term_1/lesson1_screen.dart';
+import 'package:cryptography_methods/screens/term_1/lesson2_screen.dart';
+import 'package:cryptography_methods/screens/term_1/lesson4_screen.dart';
+import 'package:cryptography_methods/screens/term_1/lesson5_screen.dart';
+import 'package:cryptography_methods/screens/term_1/lesson6_screen.dart';
+import 'package:cryptography_methods/screens/term_1/lesson7_screen.dart';
+import 'package:cryptography_methods/screens/term_2/lesson1_screen.dart';
 import 'package:cryptography_methods/utils/navigator_push.dart';
 import 'package:cryptography_methods/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,18 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
             Center(
               child: Text(
-                "Криптография",
+                "Методы и средства криптографической защиты",
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+              ),
+            ),
+            SizedBox(
+              height: heightSpacing,
+            ),
+            Center(
+              child: Text(
+                "1 семестр",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Theme.of(context).colorScheme.onSurface,
                     ),
@@ -121,6 +133,34 @@ class _MenuScreenState extends State<MenuScreen> {
                     ),
               ),
               onTap: () => navigatorPush(context, const Lesson7Screen()),
+            ),
+            SizedBox(
+              height: heightSpacing,
+            ),
+            Center(
+              child: Text(
+                "2 семестр",
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+              ),
+            ),
+            SizedBox(
+              height: heightSpacing,
+            ),
+            CustomButton(
+              width: 45.w,
+              height: 10.h,
+              text: Text(
+                "Задание 1",
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+              ),
+              onTap: () => navigatorPush(context, const Term2Lesson1()),
+            ),
+            SizedBox(
+              height: heightSpacing,
             ),
           ],
         ),
