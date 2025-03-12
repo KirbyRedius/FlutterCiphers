@@ -1,70 +1,60 @@
 class LinearCongruentialGenerator {
-  static String solve(
-      {required int a, required int c, required int m, required int x0}) {
-    // переменная для хранения длины периода (количество чисел в периоде)
-    int periodLength = 0;
+  static String solve({
+    required int a,
+    required int c,
+    required int m,
+    required int x0,
+  }) {
+    int periodLengthInBits = 0;
+    int evenCount = 0;
+    int oddCount = 0;
+    int zeroCount = 0;
+    int oneCount = 0;
 
-    //переменные для подсчета четных и нечетных чисел
-    int evenCount = 0; // количество четных чисел
-    int oddCount = 0; // количество нечетных чисел
-
-    // переменные для подсчета нулей и единиц в битовом представлении
-    int zeroCount = 0; // количество нулей
-    int oneCount = 0; // количество единиц
-
-    // текущее значение последовательности, начинается с x0
     int currentX = x0;
-
-    // флаг для определения, найден ли период
     bool periodFound = false;
-
-    // запоминаем начальное значение для проверки завершения периода
     int firstX = x0;
 
-    // основной цикл для генерации последовательности
     while (!periodFound) {
-      // генерация следующего числа по формуле ЛКГ: x(n+1) = (a * x(n) + c) mod m
+      // Генерация следующего числа
       currentX = (a * currentX + c) % m;
 
-      // проверка, является ли текущее число четным или нечетным
+      // Подсчёт чётных/нечётных
       if (currentX % 2 == 0) {
-        evenCount++; // увеличиваем счетчик четных чисел
+        evenCount++;
       } else {
-        oddCount++; // увеличиваем счетчик нечетных чисел
+        oddCount++;
       }
 
-      // переводим текущее число в двоичное представление (битовую строку)
-      String binary = currentX.toRadixString(2);
-
-      // проходим по каждому биту в двоичной строке
+      // Подсчёт нулей/единиц в битовом представлении
+      String binary = currentX.toRadixString(2).padLeft(m.bitLength, '0');
       for (int i = 0; i < binary.length; i++) {
         if (binary[i] == '0') {
-          zeroCount++; // увеличиваем счетчик нулей
+          zeroCount++;
         } else {
-          oneCount++; // увеличиваем счетчик единиц
+          oneCount++;
         }
       }
 
-      // проверяем, совпадает ли текущее число с начальным значением
-      if (currentX == firstX) {
-        periodFound = true; // период завершен
-      }
+      // Увеличиваем длину периода в битах на количество битов в текущем числе
+      periodLengthInBits += binary.length;
 
-      // увеличиваем длину периода на 1
-      periodLength++;
+      // Проверка на завершение периода
+      if (currentX == firstX) {
+        periodFound = true;
+      }
     }
 
-    // формируем строку с результатами
+    // Формирование результата
     String result = """
     Параметры генератора: a = $a, c = $c, m = $m, x0 = $x0
-    Длина периода: $periodLength чисел
+    Длина периода: $periodLengthInBits бит
     Количество четных чисел: $evenCount
     Количество нечетных чисел: $oddCount
     Количество нулей в битовом представлении: $zeroCount
     Количество единиц в битовом представлении: $oneCount
     """;
 
-    // возвращаем строку с результатами
     return result;
   }
 }
