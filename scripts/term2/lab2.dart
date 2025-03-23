@@ -1,12 +1,12 @@
 class LFSR {
   int _register; // регистр сдвига (начальное заполнение)
   final List<int>
-  _taps; // отводы для обратной связи (биты, которые влияют на новый бит)
+      _taps; // отводы для обратной связи (биты, которые влияют на новый бит)
 
-  // Конструктор
+  // конструктор в dart
   LFSR(int initialValue, List<int> taps)
-    : _register = initialValue,
-      _taps = taps;
+      : _register = initialValue,
+        _taps = taps;
 
   // функция для генерации следующего бита в последовательности lfsr
   int next() {
@@ -50,7 +50,7 @@ void main() {
   LFSR lfsr = LFSR(0x7F, [0, 5, 7]); // начальное значение 0x7F
   // отводы (taps) 0, 5, 7 так как у меня в варианте "1 + x + x^6 + x^8"
 
-  // Генерация последовательности
+  // генерация последовательности
   List<int> sequence = [];
   int period = 0;
   int initialRegister = lfsr.register;
@@ -73,7 +73,7 @@ void main() {
   print("Сгенерированная последовательность: $sequence");
   print("Длина периода: $period бит");
 
-  // Подсчет четных и нечетных чисел в одном периоде
+  // подсчет четных и нечетных чисел в одном периоде
   int evenCount = 0;
   int oddCount = 0;
   for (int num in sequence) {
@@ -86,7 +86,7 @@ void main() {
   print("Количество четных чисел: $evenCount");
   print("Количество нечетных чисел: $oddCount");
 
-  // Подсчет нулей и единиц в битовом представлении
+  // подсчет нулей и единиц в битовом представлении
   int zeroCount = 0;
   int oneCount = 0;
   for (int num in sequence) {
